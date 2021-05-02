@@ -1,23 +1,31 @@
 package com.example.sqlite.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sqlite.R;
 import com.example.sqlite.database.Teman;
+import com.example.sqlite.update_data;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
-public class teman_adapter extends RecyclerView.Adapter<teman_adapter.TemanViewHolder>{
+public class teman_adapter extends RecyclerView.Adapter<teman_adapter.TemanViewHolder> {
     private ArrayList<Teman>listData;
+    Bundle bundle = new Bundle();
+    private String[] SubjectValues;
 
     public teman_adapter(ArrayList<Teman>listData){
         this.listData = listData;
@@ -48,20 +56,36 @@ public class teman_adapter extends RecyclerView.Adapter<teman_adapter.TemanViewH
     public int getItemCount() {
         return (listData != null)?listData.size(): 0;
     }
-
-    public class TemanViewHolder extends RecyclerView.ViewHolder {
+    public class TemanViewHolder extends RecyclerView.ViewHolder{
         private CardView cardku;
         private TextView namatext,telpontext;
-        public TemanViewHolder(View view) {
+
+        public TemanViewHolder(View view){
             super(view);
             cardku = (CardView)view.findViewById(R.id.kartuku);
             namatext = (TextView) view.findViewById(R.id.textnama);
             telpontext = (TextView) view.findViewById(R.id.texttelpon);
-
-            cardku.setOnLongClickListener(new View.OnLongClickListener() {
+            cardku.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public boolean onLongClick(View view) {
-                    return true;
+                public void onClick(View view) {
+                    PopupMenu pm = new PopupMenu(cardku.getContext(),itemView);
+                    pm.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            switch (item.getItemId()) {
+                                case R.id.edit:
+                                    Intent intent = new Intent(view.getContext(), update_data.class);
+                                    view.getContext().startActivity(intent);;
+                                    break;
+                                case R.id.hapus:
+                                    Snackbar.make(view,"hapus",Snackbar.LENGTH_LONG).show();
+                                    break;
+                            }
+                            return false;
+                        }
+                    });
+                    pm.inflate(R.menu.popupmenu);
+                    pm.show();
                 }
             });
         }

@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import com.example.sqlite.adapter.teman_adapter;
 import com.example.sqlite.database.DBcontroller;
@@ -16,7 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     private RecyclerView recyclerView;
     private teman_adapter adapter;
     private ArrayList<Teman>temanarraylist;

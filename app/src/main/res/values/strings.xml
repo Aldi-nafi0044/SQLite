@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">sqlite</string>
     <string name="todo">TODO</string>
+    <string name="btn_Ubah">Ubah</string>
+    <string name="nama">Masukkan Nama</string>
+    <string name="telpon">Masukkkan Nomor Telpon</string>
+    <string name="simpan">Simpan</string>
+    <string name="ini_update_data">INI UPDATE DATA</string>
+    <string name="ini_input_data">INI INPUT DATA</string>
 </resources>
