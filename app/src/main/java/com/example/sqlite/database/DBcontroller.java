@@ -1,5 +1,6 @@
 package com.example.sqlite.database;
 
+import android.content.ClipData;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -12,7 +13,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DBcontroller extends SQLiteOpenHelper {
-    public DBcontroller( Context context) {
+
+    public DBcontroller(Context context) {
         super(context, "ProdiTI", null, 1);
     }
 
@@ -51,5 +53,20 @@ public class DBcontroller extends SQLiteOpenHelper {
         }
         db.close();
         return daftarTeman;
+    }
+    // below is the method for updating our courses
+    public boolean updatedata(String id, String nama, String telpon) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("nama",nama);
+        values.put("telepon", telpon);
+        db.update("teman", values, "id = ?", new String[]{id});
+        return true;
+    }
+    public void deleteCourse(String courseName) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("teman", "name=?", new String[]{courseName});
+        db.close();
     }
 }

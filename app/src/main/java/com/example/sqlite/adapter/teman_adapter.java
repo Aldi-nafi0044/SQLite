@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sqlite.R;
 import com.example.sqlite.database.Teman;
+import com.example.sqlite.delete_data;
 import com.example.sqlite.update_data;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -30,7 +31,6 @@ public class teman_adapter extends RecyclerView.Adapter<teman_adapter.TemanViewH
     public teman_adapter(ArrayList<Teman>listData){
         this.listData = listData;
     }
-
     @Override
     public TemanViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutinf = LayoutInflater.from(parent.getContext());
@@ -78,7 +78,8 @@ public class teman_adapter extends RecyclerView.Adapter<teman_adapter.TemanViewH
                                     view.getContext().startActivity(intent);;
                                     break;
                                 case R.id.hapus:
-                                    Snackbar.make(view,"hapus",Snackbar.LENGTH_LONG).show();
+                                    Intent i = new Intent(view.getContext(), delete_data.class);
+                                    view.getContext().startActivity(i);
                                     break;
                             }
                             return false;

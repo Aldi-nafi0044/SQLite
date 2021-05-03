@@ -12,13 +12,13 @@
         android:layout_height="wrap_content"
         android:text="@string/ini_update_data"
         android:textSize="11pt"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout4"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
+        app:layout_constraintBottom_toTopOf="@+id/edit_nama"
+        app:layout_constraintEnd_toEndOf="@+id/edit_nama"
+        app:layout_constraintStart_toStartOf="@+id/edit_nama"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout4"
+        android:id="@+id/edit_nama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
@@ -27,33 +27,35 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/update_nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nama" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout5"
+        android:id="@+id/edit_telpon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
+        app:layout_constraintStart_toStartOf="@+id/edit_nama"
+        app:layout_constraintTop_toBottomOf="@+id/edit_nama">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/update_telpon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/telpon" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnupdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_Ubah"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout5"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout5"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_telpon"
+        app:layout_constraintStart_toStartOf="@+id/edit_telpon"
+        app:layout_constraintTop_toBottomOf="@+id/edit_telpon" />
 </androidx.constraintlayout.widget.ConstraintLayout>
